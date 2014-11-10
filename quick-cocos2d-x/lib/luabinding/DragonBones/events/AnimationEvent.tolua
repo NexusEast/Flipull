@@ -1,0 +1,73 @@
+  
+    /**
+     * The AnimationEvent provides and defines all events dispatched during an animation.
+     *
+     * @see dragonBones.Armature
+     * @see dragonBones.animation.Animation
+     */
+    class AnimationEvent : public Event
+    {
+    public:
+        /**
+         * Dispatched when the playback of an animation fade in.
+         */
+        static const std::string MOVEMENT_CHANGE;
+        
+        /**
+         * Dispatched when the playback of an animation fade in.
+         */
+        static const std::string FADE_IN;
+        
+        /**
+         * Dispatched when the playback of an animation fade out.
+         */
+        static const std::string FADE_OUT;
+        
+        /**
+         * Dispatched when the playback of an animation starts.
+         */
+        static const std::string START;
+        
+        /**
+         * Dispatched when the playback of a animation stops.
+         */
+        static const std::string COMPLETE;
+        
+        /**
+         * Dispatched when the playback of a animation completes a loop.
+         */
+        static const std::string LOOP_COMPLETE;
+        
+        /**
+         * Dispatched when the playback of an animation fade in complete.
+         */
+        static const std::string FADE_IN_COMPLETE;
+        
+        /**
+         * Dispatched when the playback of an animation fade out complete.
+         */
+        static const std::string FADE_OUT_COMPLETE;
+        
+        /**
+         * The animationState instance.
+         */
+        AnimationState *animationState;
+        
+        Armature *armature;
+
+        const std::string &getMovementID();
+        
+        /**
+         * Creates a new AnimationEvent instance.
+         * @param    type
+         * @param    cancelable
+         */
+        AnimationEvent(const std::string &type)
+            : Event(type)
+            , armature(0)
+            , animationState(0)
+        {
+            
+        }
+        
+    }; 

@@ -1,0 +1,19 @@
+
+ $pfile "dragonbones/animation/Animation.tolua"
+ $pfile "dragonbones/animation/AnimationState.tolua"
+
+ $pfile "dragonbones/events/AnimationEvent.tolua"
+ $pfile "dragonbones/events/ArmatureEvent.tolua" 
+ $pfile "dragonbones/events/Event.tolua"   
+
+
+ $pfile "dragonbones/objects/ArmatureData.tolua" 
+ $pfile "dragonbones/objects/dbtinyxml2.tolua" 
+ $pfile "dragonbones/objects/XMLDataParser.tolua" 
+
+ $pfile "dragonbones/Armature.tolua" 
+ $pfile "dragonbones/Cocos2dxFactory.tolua"   
+ $pfile "dragonbones/Cocos2dxTextureAtlas.tolua" 
+
+ $pfile "dragonbones/CCDragonBones.tolua"   
+ 

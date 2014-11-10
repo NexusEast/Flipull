@@ -1,0 +1,5 @@
+class Event
+    {
+        Event(const std::string &type);  
+        const std::string &getType()const;
+    };

@@ -1,0 +1,17 @@
+ 
+    /**
+     * The ArmatureEvent provides and defines all events dispatched directly by an Armature instance.
+     *
+     * 
+     * @see dragonBones.animation.Animation
+     */
+    class ArmatureEvent : public Event
+    { 
+        /**
+         * Dispatched after a successful z order update.
+         */
+        static const std::string Z_ORDER_UPDATED;
+        
+        ArmatureEvent(const std::string &type);
+        
+    }; 

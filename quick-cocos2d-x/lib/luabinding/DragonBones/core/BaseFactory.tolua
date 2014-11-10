@@ -1,0 +1,34 @@
+ 
+    class BaseFactory
+    {
+        BaseFactory();
+        
+        
+         void loadSkeletonFile(const std::string &skeletonFile , const std::string &name  = "");
+         void loadTextureAtlasFile(const std::string &textureAtlasFile , const std::string &name = "");
+         void addTextureAtlas(ITextureAtlas *textureAtlas, const std::string &name = "");
+        SkeletonData* getSkeletonData(const std::string &name);
+        
+        void addSkeletonData(SkeletonData *data, const std::string &name = "");
+        
+        void removeSkeletonData(const std::string &name);
+        
+        ITextureAtlas* getTextureAtlas(const std::string &name);
+        
+        void addTextureAtlas(ITextureAtlas *textureAtlas, const std::string &name = "");
+        
+        void removeTextureAtlas(const std::string &name);
+        void dispose(bool disposeData = true);
+        
+        Armature* buildArmature(const std::string &armatureName, const std::string &animationName = "", const std::string &skeletonName = "", const std::string &textureAtlasName = "", const std::string &skinName = "");
+        
+        Object* getTextureDisplay(const std::string &textureName, const std::string &textureAtlasName = "", float pivotX = NaN, float pivotY = NaN);
+        
+         ITextureAtlas* generateTextureAtlas(Object *content, TextureAtlasData *textureAtlasRawData);
+        
+         Armature* generateArmature();
+        
+         Slot* generateSlot();
+        
+         Object* generateDisplay(ITextureAtlas *textureAtlas, const std::string &fullName, float pivotX, float pivotY);
+    };

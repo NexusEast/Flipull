@@ -1,0 +1,43 @@
+/**
+* Author: yyj
+* Date: 2014-05-05
+*/
+
+/**enum {
+    kCCNodeMenuItemPressedAction = 123,
+    kCCNodeMenuItemUnPressedAction = 124,
+};*/
+
+/** @brief CCNodeMenuItem
+ *
+ *  
+ */
+class  CCNodeMenuItem :  public CCMenuItemSprite
+{
+     /** Creates a CCNodeMenuItem with no target/selector */
+    static CCNodeMenuItem * create(CCNode* normalSprite, CCNode* selectedSprite, CCNode* disabledSprite = NULL);
+
+    /** Returns the outside box */
+    CCRect rect();
+
+    /** Activate the item */
+    void activate();
+    /** The item was selected (not activated), similar to "mouse-over" */
+    void selected();
+    /** The item was unselected */
+    void unselected();
+
+    /** Register menu handler script function */
+    void registerScriptTapHandler(LUA_FUNCTION nHandler);
+    void unregisterScriptTapHandler(void);
+
+    bool isEnabled();
+    void setEnabled(bool value);
+    bool isSelected();
+    
+    void setPressAction(CCAction* pressedAction,CCAction* unpressedAction);
+    /** set menu activate delay time*/
+    void setDelay(float delay);
+    
+    /**  */
+};

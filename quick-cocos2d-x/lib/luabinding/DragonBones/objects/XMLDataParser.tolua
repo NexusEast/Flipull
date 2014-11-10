@@ -1,0 +1,18 @@
+ 
+    /**
+     * The XMLDataParser class parses xml data from dragonBones generated maps.
+     */
+    class XMLDataParser
+    {
+    public:
+        XMLDataParser();
+        TextureAtlasData* parseTextureAtlasData(const XMLElement *rootElement, float scale);
+        
+        /**
+         * Parse the SkeletonData.
+         * @param    xml The SkeletonData xml to parse.
+         * @return A SkeletonData instance.
+         */
+        SkeletonData *parseSkeletonData(const XMLElement *rootElement);
+    
+    }; 

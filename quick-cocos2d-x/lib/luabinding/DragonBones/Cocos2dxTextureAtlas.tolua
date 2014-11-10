@@ -1,0 +1,17 @@
+
+class Cocos2dxTextureAtlas : public ITextureAtlas
+    {
+ 
+        Cocos2dxTextureAtlas(TextureAtlasData *data);
+         ~Cocos2dxTextureAtlas();
+       
+         const std::string &getName(); 
+         void dispose();
+         
+         Rectangle getRegion(const std::string &name); 
+        unsigned int getQuadIndex(const std::string &name);
+
+        cocos2d::CCTextureAtlas *getTextureAtlas();
+ 
+
+    };

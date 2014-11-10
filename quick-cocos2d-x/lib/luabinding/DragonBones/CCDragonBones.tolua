@@ -1,0 +1,51 @@
+$#define XMLDocument dragonBones::XMLDocument
+$#define Rectangle dragonBones::Rectangle
+class CCDragonBones:public CCNode { 
+        static Armature* buildArmature( const char* skeletonXMLFile,
+                                       const char* textureXMLFile,
+                                       const char* texturePNGFile ,
+                                        const char* dragonBonesName,
+                                        const char* armatureName,
+                                       ccBlendFunc blendMode ,
+                                       const char* animationName = "");
+ 
+                                                             
+        static CCDragonBones* create(   const char* skeletonXMLFile,
+                                     const char* textureXMLFile,
+                                     const char* texturePNGFile ,
+                                        const char* dragonBonesName,
+                                        const char* armatureName,
+                                     ccBlendFunc blendMode,
+                                     const char* animationName = "" );
+
+        CCNode*                                getDisplayNode();
+        Armature*                              getArmature();
+        virtual void                           onExit(); 
+        void                                   gotoAndPlay(
+                                                             const std::string &animationName,
+                                                             float fadeInTime = -1,
+                                                             float duration = -1,
+                                                             float loop = NaN,
+                                                             unsigned int layer = 0,
+                                                             const std::string &group = "",
+                                                             const std::string &fadeOutMode = Animation::SAME_LAYER_AND_GROUP,
+                                                             bool displayControl = true,
+                                                             bool pauseFadeOut = true,
+                                                             bool pauseFadeIn = true
+                                                             );
+ 
+        void                                   addEventListener(
+                                                                const std::string &type, 
+                                                                const std::string &key,
+																CCObject*pObj,
+																SEL_CallFuncND callback); 
+        void                                   addEventListenerWithLua(
+                                                                const std::string &type, 
+                                                                const std::string &key,
+                                                                LUA_FUNCTION listener);
+        
+		bool								   hasEventListener(const std::string &type);
+		void								   removeEventListener(const std::string &type, const std::string &key);
+		void								   dispatchEvent(Event *event);
+ 
+    };  

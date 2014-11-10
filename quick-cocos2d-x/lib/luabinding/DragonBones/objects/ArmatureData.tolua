@@ -1,0 +1,30 @@
+ 
+    class ArmatureData
+    {
+    public:
+        std::string name;
+        
+        std::vector<BoneData*> boneDataList;
+        std::vector<SkinData*> skinDataList;
+        std::vector<AnimationData*> animationDataList;
+        
+        ArmatureData();
+        virtual ~ArmatureData();
+        
+        void dispose();
+        
+        BoneData *getBoneData(const std::string &boneName);
+        
+        SkinData* getSkinData(const std::string &skinName);
+        
+        AnimationData* getAnimationData(const std::string &animationName);
+        
+        void addBoneData(BoneData *boneData);
+        
+        void addSkinData(SkinData *skinData);
+        
+        void addAnimationData(AnimationData *animationData);
+        
+        static bool sortBone(const std::pair<int , BoneData*>& a , const std::pair<int , BoneData*>& b);
+        void sortBoneDataList();
+    }; 

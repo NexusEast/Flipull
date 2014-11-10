@@ -1,0 +1,24 @@
+
+-- 0 - disable debug info, 1 - less debug info, 2 - verbose debug info
+DEBUG = 2
+DEBUG_FPS = true
+DEBUG_MEM = true
+DEBUG_BATTLE = false
+
+-- design resolution
+CONFIG_SCREEN_WIDTH  = 640
+--CONFIG_SCREEN_WIDTH  = 960 --iphone4
+CONFIG_SCREEN_HEIGHT = 960
+
+-- auto scale mode
+CONFIG_SCREEN_AUTOSCALE = "FIXED_HEIGHT"--"FIXED_WIDTH"--
+
+CONST_GLOBAL_IP = "summon.51094.com"
+
+CONFIG_GLOBAL_SOCKET_IP = CONST_GLOBAL_IP -- "192.168.13.24" --"183.56.156.211" --
+CONFIG_GLOBAL_SOCKET_PORT = 12002
+CONFIG_GLOBAL_HTTP_IP = "summon.51094.com"  --"summon.51094.com"--"10.0.4.12"  -- "192.168.13.24"--"183.56.156.211:8082"	--
+CONFIG_GLOBAL_HTTP_PORT = 80
+CONFIG_GLOBAL_TEST_PVP_SEVER_ID = 1004
+
+

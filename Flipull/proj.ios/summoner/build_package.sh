@@ -1,0 +1,1 @@
+./compile_scripts.sh -i /Users/omicron_nega/Projects/summoner/scripts -o /Users/omicron_nega/Projects/summoner/res/game.dat -e xxtea_zip -ek CFgrrwCFewrf

@@ -1,0 +1,33 @@
+ 
+    class CocosNode : public Object
+    { 
+        CocosNode(cocos2d::CCNode *n);
+        virtual ~CocosNode(); 
+        cocos2d::CCNode *node; 
+        const cocos2d::CCNode *getNode() const;
+        cocos2d::CCNode *getNode();
+    };
+
+  
+    class Cocos2dxFactory : public BaseFactory
+    { 
+
+    Armature* buildArmature( ccBlendFunc blendFunc,const std::string &armatureName, const std::string &animationName = "", const std::string &skeletonName = "", const std::string &textureAtlasName = "", const std::string &skinName = "");
+        void addSkeletonData(SkeletonData *data, const std::string &name = "");
+        /**
+         * Creates a new StarlingFactory instance.
+         */
+        Cocos2dxFactory();
+        void addTextureAtlas(ITextureAtlas *textureAtlas, const String &name = "");
+        /** @private */
+        ITextureAtlas* generateTextureAtlas(Object *content, TextureAtlasData *textureAtlasRawData);
+        
+        /** @private */
+        virtual Armature* generateArmature();
+        
+        /** @private */
+        Slot* generateSlot();
+        
+        /** @private */
+        Object* generateDisplay( ccBlendFunc blendFunc,ITextureAtlas *textureAtlas, const std::string &fullName, float pivotX, float pivotY);
+    }; 

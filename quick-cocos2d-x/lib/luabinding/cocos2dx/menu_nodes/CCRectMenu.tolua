@@ -1,0 +1,55 @@
+/**
+ *Author: yyj
+ *Date: 2014-05-05
+*/
+
+class CCRectMenu : public CCMenu
+{
+    /** creates an empty CCRectMenu */
+    static CCRectMenu* create();
+
+    /** creates a CCRectMenu with a CCArray of CCMenuItem objects */
+    static CCRectMenu* createWithArray(CCArray* pArrayOfItems);
+
+    /** creates a CCMenu with it's item, then use addChild() to add
+      * other items. It is used for script, it can't init with undetermined
+      * number of variables.
+    */
+    static CCRectMenu* createWithItem(CCMenuItem* item);
+
+    /** align items vertically */
+    void alignItemsVertically();
+    /** align items vertically with padding
+    @since v0.7.2
+    */
+    void alignItemsVerticallyWithPadding(float padding);
+
+    /** align items horizontally */
+    void alignItemsHorizontally();
+    /** align items horizontally with padding
+    @since v0.7.2
+    */
+    void alignItemsHorizontallyWithPadding(float padding);
+
+    /** align items in rows of columns */
+    void alignItemsInColumnsWithArray(CCArray* rows);
+
+    /** align items in columns of rows */
+    void alignItemsInRowsWithArray(CCArray* columns);
+
+    /** set event handler priority. By default it is: kCCMenuTouchPriority */
+    void setHandlerPriority(int newPriority);
+
+    void setOpacityModifyRGB(bool bValue);
+    bool isOpacityModifyRGB(void);
+
+    bool isEnabled();
+    void setEnabled(bool value);
+
+    void setResponseRect(CCRect rect);
+    CCRect getResponseRect();
+};
+
+// end of GUI group
+/// @}
+/// @}

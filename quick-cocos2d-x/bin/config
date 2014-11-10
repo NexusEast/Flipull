@@ -1,0 +1,5 @@
+   return array(
+        'src'      => '/Users/omicron_nega/Projects/scripts',
+        'output'   => '/Users/omicron_nega/Projects/summoner/res/game.dat', 
+        'key'      => 'ewd',  
+    );

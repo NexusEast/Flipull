@@ -1,0 +1,97 @@
+ 
+    class AnimationState
+    { 
+
+        /** @private */
+        static AnimationState* borrowObject();
+        
+        /** @private */
+        static void returnObject(AnimationState * animationState);
+        
+        /** @private */
+        static void clear();
+        
+        bool tweenEnabled;
+        bool blend;
+        std::string group;
+        float weight;
+        
+        /** @private */
+        std::map<std::string , TimelineState*> _timelineStates;
+        /** @private */
+        float _fadeWeight;
+        
+        Armature* _armature;
+        Frame *_currentFrame;
+        std::map<std::string , int> _mixingTransforms;
+        int _fadeState;
+        float _fadeInTime;
+        float _fadeOutTime;
+        float _fadeOutBeginTime;
+        float _fadeOutWeight;
+        bool _fadeIn;
+        bool _fadeOut;
+        int _pauseBeforeFadeInCompleteState;
+
+        std::string name;
+
+        AnimationData* _clip;
+        AnimationData *getClip();
+        
+        int _loopCount;
+        int getLoopCount();
+        
+        int _loop;
+        int getLoop();
+        
+        uint _layer;
+        uint getLayer();
+        
+        bool _isPlaying;
+        bool getIsPlaying();
+        
+        bool _isComplete;
+        bool getIsComplete();
+        
+        float getFadeInTime();
+        
+        float _totalTime;
+        float getTotalTime();
+        
+        float _currentTime;
+        float getCurrentTime();  
+        void setCurrentTime(float value);
+        
+        float _timeScale;
+        float getTimeScale();
+        void setTimeScale(float value);
+        
+        bool displayControl;
+        
+        AnimationState();
+        
+        /** @private */
+        void fadeIn(Armature * armature, AnimationData * clip, float fadeInTime, float timeScale, int loop, uint layer, bool displayControl, bool pauseBeforeFadeInComplete);
+        
+        void fadeOut(float fadeOutTime, bool pause);
+
+        void play();
+        
+        void stop();
+        
+        int getMixingTransform(const std::string &timelineName);
+        
+        void addMixingTransform(const std::string &timelineName, int type , bool recursive );
+        
+        void removeMixingTransform(const std::string &timelineName , bool recursive );
+        
+        bool advanceTime(float passedTime);
+        
+        void updateTimelineStates();
+        
+        void addTimelineState(const std::string &timelineName);
+        
+        void removeTimelineState(const std::string &timelineName);
+        
+        void clearAll();
+    }; 

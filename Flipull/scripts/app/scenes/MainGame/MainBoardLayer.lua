@@ -143,25 +143,28 @@ function MainBoardLayer:apply_block_action( param )
 			end
 			erase_count=erase_count+1
 			self.board_map[pY][j] = 0 
-			self.block_table[pY][j]:removeFromParentAndCleanup(true)
-			self.block_table[pY][j] = nil
+			if self.block_table[pY][j] then
+				self.block_table[pY][j]:removeFromParentAndCleanup(true)
+				self.block_table[pY][j] = nil
+			end
 		end  
 
-		if pY < #self.board_map then
-			local tmp = self.cur_block_type
-			 self.cur_block_type = self.board_map[pY + 1][1]
-			 self.board_map[pY + 1][1] = tmp
+		while pY < #self.board_map do
+			pY = pY + 1
 
-			 local temp_pos_x , temp_pos_y = self.block_table[pY+1][j]:getPosition()
-			self.block_table[pY+1][j]:removeFromParentAndCleanup(true)
-			self.block_table[pY+1][j] = Block.new({type = tmp})
-			self.block_table[pY+1][j]:setOpacity(128)
-			self.block_table[pY+1][j]:setAnchorPoint(ccp(0,0))
-			self.block_table[pY+1][j]:setPosition(temp_pos_x , temp_pos_y)
-			self:addChild(self.block_table[pY+1][j])
-			self:update_cur_block()
-			self:update_animation_horizon()
+			if self.board_map[pY][1] ~= 0 then
+				if self.board_map[pY][1] == self.cur_block_type then
+					self.board_map[pY][1] = 0 
+					if self.block_table[pY][j] then
+						self.block_table[pY][j]:removeFromParentAndCleanup(true)
+						self.block_table[pY][j] = nil
+					end
+				end
+			end
+ 
 		end
+		self:update_cur_block()
+		self:update_animation_horizon()
 
 
 

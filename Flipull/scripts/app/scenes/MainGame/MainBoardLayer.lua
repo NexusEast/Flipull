@@ -35,8 +35,21 @@ function MainBoardLayer:dump_board(board)
 	echoInfo(str)
 end
 
+function MainBoardLayer:get_zored_table(size)
+	local ret = {}
+	for i=1,size.height do
+		 local t = {}
+		 for j=1,size.width do
+		 	 t[j]=0
+		 end
+		 ret[i]=t
+	end
+	return ret
+end
+
 function MainBoardLayer:move_down_blocks() 
-	self.last_board_state = clone(self.board_map)
+	self.last_board_state = clone(self.board_map) 
+  	self.stat_table = self:get_zored_table(self.size) 
 	for i=1,#self.board_map   do 
 		for j=1,#self.board_map[i]   do  
 			local cur_val = self.board_map[i][j]
@@ -78,8 +91,7 @@ function MainBoardLayer:update_animation_horizon(param)
 			 	end
 			 end
 		end
-	end
-
+	end 
   	self:move_down_blocks()   
 	for i=#self.stat_table,1,-1 do 
 		for j=1,#self.stat_table[i] do  
@@ -95,8 +107,17 @@ function MainBoardLayer:update_animation_horizon(param)
 			 	end
 			 end
 		end
-	end
+	end 
 
+end
+
+function  MainBoardLayer:reset_blocks_color(  )
+	-- body
+	for k,v in pairs(self.block_table) do
+		for k1,v1 in pairs(self.block_table[k]) do
+			v1:setOpacity(128)
+		end
+	end
 end
 
 function MainBoardLayer:apply_block_action( param ) 
@@ -106,8 +127,7 @@ function MainBoardLayer:apply_block_action( param )
 	if direction == "Horizon" then
 
 		local got_first_block = false
-		local erase_count = 0
-		self:dump_board()
+		local erase_count = 0 
 		if self.cur_block_type ~= 1 then got_first_block = true end
 		for j=#self.board_map[pY],1,-1   do  
 
@@ -125,7 +145,6 @@ function MainBoardLayer:apply_block_action( param )
 				local temp = self.cur_block_type
 				self.cur_block_type = self.board_map[pY][j]
 				self.board_map[pY][j] = temp 
-				self:dump_board()
 
 
 				local temp_pos_x , temp_pos_y = self.block_table[pY][j]:getPosition()
@@ -141,24 +160,47 @@ function MainBoardLayer:apply_block_action( param )
 
 				return
 			end
-			erase_count=erase_count+1
+			-- echoInfo("self.board_map[%d][%d]:%s , erase_count:%s",pY,j,self.board_map[pY][j],erase_count)
+			if self.board_map[pY][j] ~= 0 then
+				erase_count=erase_count+1
+			end
 			self.board_map[pY][j] = 0 
 			if self.block_table[pY][j] then
 				self.block_table[pY][j]:removeFromParentAndCleanup(true)
 				self.block_table[pY][j] = nil
 			end
 		end  
-
+ 
 		while pY < #self.board_map do
 			pY = pY + 1
 
 			if self.board_map[pY][1] ~= 0 then
-				if self.board_map[pY][1] == self.cur_block_type then
+				echoInfo("pY:%s",pY)
+				if self.board_map[pY][1] == self.cur_block_type then 
+					echoInfo("ERASEING:%s,CUR:%s",self.board_map[pY][1],self.cur_block_type)
 					self.board_map[pY][1] = 0 
-					if self.block_table[pY][j] then
-						self.block_table[pY][j]:removeFromParentAndCleanup(true)
-						self.block_table[pY][j] = nil
+					if self.block_table[pY][1] then
+						self.block_table[pY][1]:removeFromParentAndCleanup(true)
+						self.block_table[pY][1] = nil
 					end
+				else
+
+					if erase_count == 0 then break end
+					local temp = self.cur_block_type
+					self.cur_block_type = self.board_map[pY][1]
+					self.board_map[pY][1] = temp 
+					-- self:dump_board()
+	
+	
+					local temp_pos_x , temp_pos_y = self.block_table[pY][1]:getPosition()
+					-- echoInfo("SWAP POSITION:(%s,%s)",temp_pos_x , temp_pos_y)
+					self.block_table[pY][1]:removeFromParentAndCleanup(true)
+					self.block_table[pY][1] = Block.new({type = temp})
+					self.block_table[pY][1]:setOpacity(128)
+					self.block_table[pY][1]:setAnchorPoint(ccp(0,0))
+					self.block_table[pY][1]:setPosition(temp_pos_x , temp_pos_y)
+					self:addChild(self.block_table[pY][1])
+					break
 				end
 			end
  
@@ -268,6 +310,8 @@ function MainBoardLayer:setup_controller()
 					direction = selected_type
 
 					} ) 
+				self:reset_blocks_color()
+				self:dump_board()
 				echoInfo("selected_type:%s",selected_type)
 			end
 

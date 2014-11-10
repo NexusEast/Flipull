@@ -176,3 +176,19 @@ cocos2d: CCTextureCache dumpDebugInfo: 7 textures, for 252 KB (0.25 MB)
 [700.6364] [INFO] LUA VM MEMORY USED: 1975.90 KB
 [710.6447] [INFO] LUA VM MEMORY USED: 1976.00 KB
 [720.6452] [INFO] LUA VM MEMORY USED: 1976.10 KB
+[730.6454] [INFO] LUA VM MEMORY USED: 1976.20 KB
+[740.6464] [INFO] LUA VM MEMORY USED: 1976.30 KB
+[750.6465] [INFO] LUA VM MEMORY USED: 1976.39 KB
+[753.6401] [INFO] Scene "GameScene:onExit()"
+[753.6404] [INFO] ----------------------------------------
+[753.6409] [INFO] LUA VM MEMORY USED: 1976.58 KB
+cocos2d: "cc_fps_images" rc=4 id=2 256 x 32 @ 16 bpp => 16 KB
+cocos2d: "cc_2x2_white_image" rc=1 id=3 2 x 2 @ 32 bpp => 0 KB
+cocos2d: "E:\Porjects\Flipull\Flipull\res/t.png" rc=7 id=5 110 x 110 @ 32 bpp => 47 KB
+cocos2d: "E:\Porjects\Flipull\Flipull\res/s.png" rc=7 id=6 110 x 110 @ 32 bpp => 47 KB
+cocos2d: "E:\Porjects\Flipull\Flipull\res/c.png" rc=5 id=7 110 x 110 @ 32 bpp => 47 KB
+cocos2d: "E:\Porjects\Flipull\Flipull\res/x.png" rc=5 id=8 110 x 110 @ 32 bpp => 47 KB
+cocos2d: "E:\Porjects\Flipull\Flipull\res/l.png" rc=1 id=9 110 x 110 @ 32 bpp => 47 KB
+cocos2d: "E:\Porjects\Flipull\Flipull\res/b.png" rc=1 id=1 78 x 38 @ 32 bpp => 11 KB
+cocos2d: CCTextureCache dumpDebugInfo: 8 textures, for 263 KB (0.26 MB)
+[753.6458] [INFO] ----------------------------------------

@@ -15,58 +15,58 @@
 	gl.supports_vertex_array_object: true
 </dict>
 CCLuaStack::loadChunksFromZIP
-Get data from file(lib\framework_precompiled\framework_precompiled.zip) failed!
-lua_loadChunksFromZIP() - not found or invalid zip file: lib\framework_precompiled\framework_precompiled.zip
+lua_loadChunksFromZIP() - load zip file: E:\Porjects\Flipull\quick-cocos2d-x\lib\framework_precompiled\framework_precompiled.zip
+lua_loadChunksFromZIP() - loaded chunks count: 54
 ------------------------------------------------
 LOAD LUA FILE: E:/Porjects/Flipull/Flipull/scripts/main.lua
 ------------------------------------------------
 lua_loadChunksFromZIP() - load zip file: E:\Porjects\Flipull\Flipull\res/framework_precompiled.zip
 lua_loadChunksFromZIP() - loaded chunks count: 54
-[0.0791] [INFO] 
-[0.0793] [INFO] # DEBUG                        = 2
-[0.0798] [INFO] #
-[0.0802] [INFO] # device.platform              = windows
-[0.0804] [INFO] # device.model                 = unknown
-[0.0808] [INFO] # device.language              = cn
-[0.0811] [INFO] # device.writablePath          = E:\Porjects\Flipull\Flipull\
-[0.0815] [INFO] # device.cachePath             = E:\Porjects\Flipull\Flipull\
-[0.0819] [INFO] # device.directorySeparator    = \
-[0.0822] [INFO] # device.pathSeparator         = ;
-[0.0825] [INFO] #
-[0.0848] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_HEIGHT
-[0.0850] [INFO] # CONFIG_SCREEN_WIDTH          = 640.00
-[0.0854] [INFO] # CONFIG_SCREEN_HEIGHT         = 960.00
-[0.0858] [INFO] # display.widthInPixels        = 640.00
-[0.0862] [INFO] # display.heightInPixels       = 960.00
-[0.0865] [INFO] # display.contentScaleFactor   = 1.00
-[0.0869] [INFO] # display.width                = 640.00
-[0.0873] [INFO] # display.height               = 960.00
-[0.0876] [INFO] # display.cx                   = 320.00
-[0.0880] [INFO] # display.cy                   = 480.00
-[0.0884] [INFO] # display.left                 = 0.00
-[0.0887] [INFO] # display.right                = 640.00
-[0.0891] [INFO] # display.top                  = 960.00
-[0.0894] [INFO] # display.bottom               = 0.00
-[0.0898] [INFO] # display.c_left               = -320.00
-[0.0901] [INFO] # display.c_right              = 320.00
-[0.0904] [INFO] # display.c_top                = 480.00
-[0.0908] [INFO] # display.c_bottom             = -480.00
-[0.0911] [INFO] #
-[0.1064] [INFO] Scene "UpdateScene:onEnter()"
+[0.1104] [INFO] 
+[0.1106] [INFO] # DEBUG                        = 2
+[0.1109] [INFO] #
+[0.1113] [INFO] # device.platform              = windows
+[0.1115] [INFO] # device.model                 = unknown
+[0.1118] [INFO] # device.language              = cn
+[0.1121] [INFO] # device.writablePath          = E:\Porjects\Flipull\Flipull\
+[0.1125] [INFO] # device.cachePath             = E:\Porjects\Flipull\Flipull\
+[0.1128] [INFO] # device.directorySeparator    = \
+[0.1130] [INFO] # device.pathSeparator         = ;
+[0.1133] [INFO] #
+[0.1159] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_HEIGHT
+[0.1161] [INFO] # CONFIG_SCREEN_WIDTH          = 640.00
+[0.1165] [INFO] # CONFIG_SCREEN_HEIGHT         = 960.00
+[0.1168] [INFO] # display.widthInPixels        = 640.00
+[0.1171] [INFO] # display.heightInPixels       = 960.00
+[0.1175] [INFO] # display.contentScaleFactor   = 1.00
+[0.1178] [INFO] # display.width                = 640.00
+[0.1181] [INFO] # display.height               = 960.00
+[0.1184] [INFO] # display.cx                   = 320.00
+[0.1187] [INFO] # display.cy                   = 480.00
+[0.1190] [INFO] # display.left                 = 0.00
+[0.1194] [INFO] # display.right                = 640.00
+[0.1197] [INFO] # display.top                  = 960.00
+[0.1200] [INFO] # display.bottom               = 0.00
+[0.1203] [INFO] # display.c_left               = -320.00
+[0.1206] [INFO] # display.c_right              = 320.00
+[0.1209] [INFO] # display.c_top                = 480.00
+[0.1213] [INFO] # display.c_bottom             = -480.00
+[0.1215] [INFO] #
+[0.1415] [INFO] Scene "UpdateScene:onEnter()"
 old path------> E:\Porjects\Flipull\Flipull
 path check OK------> E:\Porjects\Flipull\Flipull\
-[0.1184] [INFO] TestTabLayer
-[0.1273] [INFO] 
-userdata: 0x054804b0, userdata: 0x054804f8, userdata: 0x039516d0, userdata: 0x0547e548, userdata: 0x054850c8, 
-userdata: 0x054783b8, userdata: 0x05478648, userdata: 0x054852f0, userdata: 0x054785c8, userdata: 0x05484f50, 
-userdata: 0x05482f90, userdata: 0x05486918, userdata: 0x0547e468, userdata: 0x054867b8, userdata: 0x05484bb0, 
-userdata: 0x05484ed0, userdata: 0x05486138, userdata: 0x05484e88, userdata: 0x054860b8, userdata: 0x05488238, 
-userdata: 0x05488538, userdata: 0x05488600, userdata: 0x05485bd8, userdata: 0x054885e0, userdata: 0x05485c20, 
+[0.1512] [INFO] TestTabLayer
+[0.1591] [INFO] 
+userdata: 0x061ffad8, userdata: 0x06202ed8, userdata: 0x061ffa58, userdata: 0x061ffb80, userdata: 0x06204e18, 
+userdata: 0x061f7d70, userdata: 0x061f8000, userdata: 0x06205040, userdata: 0x061f7f80, userdata: 0x06204cb8, 
+userdata: 0x061ff9f0, userdata: 0x06206668, userdata: 0x061ffa38, userdata: 0x06206508, userdata: 0x06204918, 
+userdata: 0x06204c38, userdata: 0x06205e88, userdata: 0x06204bf0, userdata: 0x06205e08, userdata: 0x06207f88, 
+userdata: 0x06208288, userdata: 0x06208350, userdata: 0x06205928, userdata: 0x06208330, userdata: 0x06205970, 
 
-[0.1294] [INFO] Scene "GameScene:onEnter()"
-[0.7704] [INFO] Scene "UpdateScene:onExit()"
-[0.7707] [INFO] ----------------------------------------
-[0.7712] [INFO] LUA VM MEMORY USED: 1893.41 KB
+[0.1636] [INFO] Scene "GameScene:onEnter()"
+[0.8023] [INFO] Scene "UpdateScene:onExit()"
+[0.8026] [INFO] ----------------------------------------
+[0.8030] [INFO] LUA VM MEMORY USED: 2016.45 KB
 cocos2d: "cc_fps_images" rc=4 id=2 256 x 32 @ 16 bpp => 16 KB
 cocos2d: "cc_2x2_white_image" rc=1 id=3 2 x 2 @ 32 bpp => 0 KB
 cocos2d: "E:\Porjects\Flipull\Flipull\res/t.png" rc=11 id=5 110 x 110 @ 32 bpp => 47 KB
@@ -75,8 +75,8 @@ cocos2d: "E:\Porjects\Flipull\Flipull\res/c.png" rc=5 id=7 110 x 110 @ 32 bpp =>
 cocos2d: "E:\Porjects\Flipull\Flipull\res/x.png" rc=5 id=8 110 x 110 @ 32 bpp => 47 KB
 cocos2d: "E:\Porjects\Flipull\Flipull\res/l.png" rc=2 id=9 110 x 110 @ 32 bpp => 47 KB
 cocos2d: CCTextureCache dumpDebugInfo: 7 textures, for 252 KB (0.25 MB)
-[0.7757] [INFO] ----------------------------------------
-[4.3465] [INFO] 
+[0.8073] [INFO] ----------------------------------------
+[1.5422] [INFO] 
 2
 2, 2, 2, 2, 0, 
 3, 2, 4, 4, 3, 
@@ -84,9 +84,8 @@ cocos2d: CCTextureCache dumpDebugInfo: 7 textures, for 252 KB (0.25 MB)
 3, 5, 4, 5, 2, 
 2, 2, 3, 4, 5, 
 
-[4.3476] [INFO] selected_type:Horizon
-[6.2642] [INFO] pY:2
-[6.2648] [INFO] 
+[1.5433] [INFO] selected_type:Horizon
+[2.5800] [INFO] 
 3
 0, 0, 0, 0, 0, 
 2, 2, 4, 4, 3, 
@@ -94,8 +93,8 @@ cocos2d: CCTextureCache dumpDebugInfo: 7 textures, for 252 KB (0.25 MB)
 3, 5, 4, 5, 2, 
 2, 2, 3, 4, 5, 
 
-[6.2658] [INFO] selected_type:Horizon
-[8.0344] [INFO] 
+[2.5811] [INFO] selected_type:Horizon
+[4.4720] [INFO] 
 4
 0, 0, 0, 0, 0, 
 2, 2, 4, 3, 0, 
@@ -103,92 +102,90 @@ cocos2d: CCTextureCache dumpDebugInfo: 7 textures, for 252 KB (0.25 MB)
 3, 5, 4, 5, 2, 
 2, 2, 3, 4, 5, 
 
-[8.0355] [INFO] selected_type:Horizon
-[10.1164] [INFO] LUA VM MEMORY USED: 1969.10 KB
-[20.1164] [INFO] LUA VM MEMORY USED: 1969.19 KB
-[30.1165] [INFO] LUA VM MEMORY USED: 1969.29 KB
-[40.1300] [INFO] LUA VM MEMORY USED: 1969.39 KB
-[50.1301] [INFO] LUA VM MEMORY USED: 1969.49 KB
-[60.1358] [INFO] LUA VM MEMORY USED: 1969.59 KB
-[70.1358] [INFO] LUA VM MEMORY USED: 1969.69 KB
-[80.1359] [INFO] LUA VM MEMORY USED: 1969.79 KB
-[90.1433] [INFO] LUA VM MEMORY USED: 1969.88 KB
-[100.1555] [INFO] LUA VM MEMORY USED: 1969.98 KB
-[110.1632] [INFO] LUA VM MEMORY USED: 1970.08 KB
-[120.1702] [INFO] LUA VM MEMORY USED: 1970.18 KB
-[130.1840] [INFO] LUA VM MEMORY USED: 1970.28 KB
-[140.1908] [INFO] LUA VM MEMORY USED: 1970.38 KB
-[150.2043] [INFO] LUA VM MEMORY USED: 1970.48 KB
-[160.2114] [INFO] LUA VM MEMORY USED: 1970.58 KB
-[170.2179] [INFO] LUA VM MEMORY USED: 1970.67 KB
-[180.2270] [INFO] LUA VM MEMORY USED: 1970.77 KB
-[190.2271] [INFO] LUA VM MEMORY USED: 1970.87 KB
-[200.2274] [INFO] LUA VM MEMORY USED: 1970.97 KB
-[210.2304] [INFO] LUA VM MEMORY USED: 1971.07 KB
-[220.2344] [INFO] LUA VM MEMORY USED: 1971.17 KB
-[230.2420] [INFO] LUA VM MEMORY USED: 1971.27 KB
-[240.2481] [INFO] LUA VM MEMORY USED: 1971.36 KB
-[250.2496] [INFO] LUA VM MEMORY USED: 1971.46 KB
-[260.2545] [INFO] LUA VM MEMORY USED: 1971.56 KB
-[270.2670] [INFO] LUA VM MEMORY USED: 1971.66 KB
-[280.2811] [INFO] LUA VM MEMORY USED: 1971.76 KB
-[290.2939] [INFO] LUA VM MEMORY USED: 1971.86 KB
-[300.3027] [INFO] LUA VM MEMORY USED: 1971.96 KB
-[310.3100] [INFO] LUA VM MEMORY USED: 1972.05 KB
-[320.3252] [INFO] LUA VM MEMORY USED: 1972.15 KB
-[330.3354] [INFO] LUA VM MEMORY USED: 1972.25 KB
-[340.3485] [INFO] LUA VM MEMORY USED: 1972.35 KB
-[350.3632] [INFO] LUA VM MEMORY USED: 1972.45 KB
-[360.3734] [INFO] LUA VM MEMORY USED: 1972.55 KB
-[370.3830] [INFO] LUA VM MEMORY USED: 1972.65 KB
-[380.3845] [INFO] LUA VM MEMORY USED: 1972.75 KB
-[390.3992] [INFO] LUA VM MEMORY USED: 1972.84 KB
-[400.3998] [INFO] LUA VM MEMORY USED: 1972.94 KB
-[410.4056] [INFO] LUA VM MEMORY USED: 1973.04 KB
-[420.4095] [INFO] LUA VM MEMORY USED: 1973.14 KB
-[430.4216] [INFO] LUA VM MEMORY USED: 1973.24 KB
-[440.4248] [INFO] LUA VM MEMORY USED: 1973.34 KB
-[450.4311] [INFO] LUA VM MEMORY USED: 1973.44 KB
-[460.4384] [INFO] LUA VM MEMORY USED: 1973.53 KB
-[470.4423] [INFO] LUA VM MEMORY USED: 1973.63 KB
-[480.4570] [INFO] LUA VM MEMORY USED: 1973.73 KB
-[490.4669] [INFO] LUA VM MEMORY USED: 1973.83 KB
-[500.4810] [INFO] LUA VM MEMORY USED: 1973.93 KB
-[510.4838] [INFO] LUA VM MEMORY USED: 1974.03 KB
-[520.4877] [INFO] LUA VM MEMORY USED: 1974.13 KB
-[530.5034] [INFO] LUA VM MEMORY USED: 1974.22 KB
-[540.5143] [INFO] LUA VM MEMORY USED: 1974.32 KB
-[550.5184] [INFO] LUA VM MEMORY USED: 1974.42 KB
-[560.5203] [INFO] LUA VM MEMORY USED: 1974.52 KB
-[570.5225] [INFO] LUA VM MEMORY USED: 1974.62 KB
-[580.5325] [INFO] LUA VM MEMORY USED: 1974.72 KB
-[590.5389] [INFO] LUA VM MEMORY USED: 1974.82 KB
-[600.5527] [INFO] LUA VM MEMORY USED: 1974.92 KB
-[610.5566] [INFO] LUA VM MEMORY USED: 1975.01 KB
-[620.5657] [INFO] LUA VM MEMORY USED: 1975.11 KB
-[630.5807] [INFO] LUA VM MEMORY USED: 1975.21 KB
-[640.5920] [INFO] LUA VM MEMORY USED: 1975.31 KB
-[650.5970] [INFO] LUA VM MEMORY USED: 1975.41 KB
-[660.6039] [INFO] LUA VM MEMORY USED: 1975.51 KB
-[670.6114] [INFO] LUA VM MEMORY USED: 1975.61 KB
-[680.6174] [INFO] LUA VM MEMORY USED: 1975.70 KB
-[690.6296] [INFO] LUA VM MEMORY USED: 1975.80 KB
-[700.6364] [INFO] LUA VM MEMORY USED: 1975.90 KB
-[710.6447] [INFO] LUA VM MEMORY USED: 1976.00 KB
-[720.6452] [INFO] LUA VM MEMORY USED: 1976.10 KB
-[730.6454] [INFO] LUA VM MEMORY USED: 1976.20 KB
-[740.6464] [INFO] LUA VM MEMORY USED: 1976.30 KB
-[750.6465] [INFO] LUA VM MEMORY USED: 1976.39 KB
-[753.6401] [INFO] Scene "GameScene:onExit()"
-[753.6404] [INFO] ----------------------------------------
-[753.6409] [INFO] LUA VM MEMORY USED: 1976.58 KB
+[4.4729] [INFO] selected_type:Horizon
+[5.0438] [INFO] 
+3
+0, 0, 0, 0, 0, 
+2, 2, 0, 3, 0, 
+3, 2, 4, 3, 5, 
+3, 5, 4, 5, 2, 
+2, 2, 3, 4, 5, 
+
+[5.0447] [INFO] selected_type:Vertical
+[6.3176] [INFO] 
+5
+0, 0, 0, 0, 0, 
+2, 2, 0, 0, 0, 
+3, 2, 4, 0, 5, 
+3, 5, 4, 3, 2, 
+2, 2, 3, 4, 5, 
+
+[6.3188] [INFO] selected_type:Vertical
+[7.8318] [INFO] 
+4
+0, 0, 0, 0, 0, 
+2, 2, 0, 0, 0, 
+3, 2, 4, 0, 0, 
+3, 5, 4, 3, 5, 
+2, 2, 3, 5, 2, 
+
+[7.8328] [INFO] selected_type:Horizon
+[8.8877] [INFO] 
+3
+0, 0, 0, 0, 0, 
+2, 2, 0, 0, 0, 
+3, 2, 0, 0, 0, 
+3, 5, 0, 3, 5, 
+2, 2, 4, 5, 2, 
+
+[8.8887] [INFO] selected_type:Vertical
+[10.0035] [INFO] 
+5
+0, 0, 0, 0, 0, 
+2, 2, 0, 0, 0, 
+3, 2, 0, 0, 0, 
+3, 5, 0, 0, 5, 
+2, 2, 4, 3, 2, 
+
+[10.0044] [INFO] selected_type:Vertical
+[10.1452] [INFO] LUA VM MEMORY USED: 2162.32 KB
+[10.7298] [INFO] 
+3
+0, 0, 0, 0, 0, 
+2, 0, 0, 0, 0, 
+3, 2, 0, 0, 0, 
+5, 2, 0, 0, 0, 
+2, 2, 4, 3, 2, 
+
+[10.7306] [INFO] selected_type:Horizon
+[14.1653] [INFO] 
+3
+0, 0, 0, 0, 0, 
+2, 0, 0, 0, 0, 
+3, 2, 0, 0, 0, 
+5, 2, 0, 0, 0, 
+2, 2, 4, 3, 2, 
+
+[14.1660] [INFO] selected_type:Horizon
+[15.3975] [INFO] 
+3
+0, 0, 0, 0, 0, 
+2, 0, 0, 0, 0, 
+3, 2, 0, 0, 0, 
+5, 2, 0, 0, 0, 
+2, 2, 4, 0, 2, 
+
+[15.3983] [INFO] selected_type:Vertical
+[19.3209] [INFO] Scene "GameScene:onExit()"
+[19.3212] [INFO] ----------------------------------------
+[19.3216] [INFO] LUA VM MEMORY USED: 2221.10 KB
 cocos2d: "cc_fps_images" rc=4 id=2 256 x 32 @ 16 bpp => 16 KB
 cocos2d: "cc_2x2_white_image" rc=1 id=3 2 x 2 @ 32 bpp => 0 KB
 cocos2d: "E:\Porjects\Flipull\Flipull\res/t.png" rc=7 id=5 110 x 110 @ 32 bpp => 47 KB
-cocos2d: "E:\Porjects\Flipull\Flipull\res/s.png" rc=7 id=6 110 x 110 @ 32 bpp => 47 KB
-cocos2d: "E:\Porjects\Flipull\Flipull\res/c.png" rc=5 id=7 110 x 110 @ 32 bpp => 47 KB
-cocos2d: "E:\Porjects\Flipull\Flipull\res/x.png" rc=5 id=8 110 x 110 @ 32 bpp => 47 KB
+cocos2d: "E:\Porjects\Flipull\Flipull\res/s.png" rc=3 id=6 110 x 110 @ 32 bpp => 47 KB
+cocos2d: "E:\Porjects\Flipull\Flipull\res/c.png" rc=2 id=7 110 x 110 @ 32 bpp => 47 KB
+cocos2d: "E:\Porjects\Flipull\Flipull\res/x.png" rc=2 id=8 110 x 110 @ 32 bpp => 47 KB
 cocos2d: "E:\Porjects\Flipull\Flipull\res/l.png" rc=1 id=9 110 x 110 @ 32 bpp => 47 KB
 cocos2d: "E:\Porjects\Flipull\Flipull\res/b.png" rc=1 id=1 78 x 38 @ 32 bpp => 11 KB
 cocos2d: CCTextureCache dumpDebugInfo: 8 textures, for 263 KB (0.26 MB)
-[753.6458] [INFO] ----------------------------------------
+[19.3260] [INFO] ----------------------------------------

@@ -120,8 +120,25 @@ function  MainBoardLayer:reset_blocks_color(  )
 	end
 end
 
+function MainBoardLayer:are_we_game_over()
+	-- local ret = false
+	-- for i=1,#self.board_map do 
+	-- 	for j=1,#self.board_map[i] do  
+	-- 		 local val = self.board_map[i][j]
+	-- 		 if val == 0 then
+	-- 		 	if self.block_table[i][j] then
+	-- 		 		self.block_table[i][j]:removeFromParentAndCleanup(true)
+	-- 		 		self.block_table[i][j] = nil
+	-- 		 	end
+	-- 		 end
+	-- 	end
+	-- end 
+
+	-- return ret
+end
+
 function MainBoardLayer:apply_block_action( param ) 
-	local pX,pY = self.size.width - param.pX + 1,self.size.height - param.pY +1
+	local pX,pY = param.pX ,self.size.height - param.pY +1
 	local direction = param.direction 
 
 	if direction == "Horizon" then
@@ -175,9 +192,9 @@ function MainBoardLayer:apply_block_action( param )
 			pY = pY + 1
 
 			if self.board_map[pY][1] ~= 0 then
-				echoInfo("pY:%s",pY)
+				-- echoInfo("pY:%s",pY)
 				if self.board_map[pY][1] == self.cur_block_type then 
-					echoInfo("ERASEING:%s,CUR:%s",self.board_map[pY][1],self.cur_block_type)
+					-- echoInfo("ERASEING:%s,CUR:%s",self.board_map[pY][1],self.cur_block_type)
 					self.board_map[pY][1] = 0 
 					if self.block_table[pY][1] then
 						self.block_table[pY][1]:removeFromParentAndCleanup(true)
@@ -211,6 +228,87 @@ function MainBoardLayer:apply_block_action( param )
 
 
 	elseif direction == "Vertical" then
+		local got_first_block = false
+		local erase_count = 0 
+		if self.cur_block_type ~= 1 then got_first_block = true end
+		for j=1,#self.board_map   do    
+			if got_first_block == false then
+				if self.board_map[j][pX] ~= 0 then
+					got_first_block = true
+					self.cur_block_type = self.board_map[j][pX]
+					-- echoInfo("GOT FIRST BLOCK:%s",self.cur_block_type)
+				end
+			end
+
+			if self.board_map[j][pX] ~= self.cur_block_type and self.board_map[j][pX] ~= 0  then
+				if erase_count == 0 then return end
+				-- echoInfo("DIFFERENT BLOCK ENCOUNTERED!(%s)",self.board_map[pY][j])
+				local temp = self.cur_block_type
+				self.cur_block_type = self.board_map[j][pX]
+				self.board_map[j][pX] = temp 
+
+
+				local temp_pos_x , temp_pos_y = self.block_table[j][pX]:getPosition()
+				-- echoInfo("SWAP POSITION:(%s,%s)",temp_pos_x , temp_pos_y)
+				self.block_table[j][pX]:removeFromParentAndCleanup(true)
+				self.block_table[j][pX] = Block.new({type = temp})
+				self.block_table[j][pX]:setOpacity(128)
+				self.block_table[j][pX]:setAnchorPoint(ccp(0,0))
+				self.block_table[j][pX]:setPosition(temp_pos_x , temp_pos_y)
+				self:addChild(self.block_table[j][pX])
+				self:update_cur_block()
+				self:update_animation_horizon()
+
+				return
+			end
+			-- echoInfo("self.board_map[%d][%d]:%s , erase_count:%s",pY,j,self.board_map[pY][j],erase_count)
+			if self.board_map[j][pX] ~= 0 then
+				erase_count=erase_count+1
+			end
+			self.board_map[j][pX] = 0 
+			if self.block_table[j][pX] then
+				self.block_table[j][pX]:removeFromParentAndCleanup(true)
+				self.block_table[j][pX] = nil
+			end
+		end  
+ 
+		-- while pY < #self.board_map do
+		-- 	pY = pY + 1
+
+		-- 	if self.board_map[pY][1] ~= 0 then
+		-- 		-- echoInfo("pY:%s",pY)
+		-- 		if self.board_map[pY][1] == self.cur_block_type then 
+		-- 			-- echoInfo("ERASEING:%s,CUR:%s",self.board_map[pY][1],self.cur_block_type)
+		-- 			self.board_map[pY][1] = 0 
+		-- 			if self.block_table[pY][1] then
+		-- 				self.block_table[pY][1]:removeFromParentAndCleanup(true)
+		-- 				self.block_table[pY][1] = nil
+		-- 			end
+		-- 		else
+
+		-- 			if erase_count == 0 then break end
+		-- 			local temp = self.cur_block_type
+		-- 			self.cur_block_type = self.board_map[pY][1]
+		-- 			self.board_map[pY][1] = temp 
+		-- 			-- self:dump_board()
+	
+	
+		-- 			local temp_pos_x , temp_pos_y = self.block_table[pY][1]:getPosition()
+		-- 			-- echoInfo("SWAP POSITION:(%s,%s)",temp_pos_x , temp_pos_y)
+		-- 			self.block_table[pY][1]:removeFromParentAndCleanup(true)
+		-- 			self.block_table[pY][1] = Block.new({type = temp})
+		-- 			self.block_table[pY][1]:setOpacity(128)
+		-- 			self.block_table[pY][1]:setAnchorPoint(ccp(0,0))
+		-- 			self.block_table[pY][1]:setPosition(temp_pos_x , temp_pos_y)
+		-- 			self:addChild(self.block_table[pY][1])
+		-- 			break
+		-- 		end
+		-- 	end
+ 
+		-- end
+		self:update_cur_block()
+		self:update_animation_horizon()
+
 
 	end
 end

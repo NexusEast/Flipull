@@ -50,12 +50,12 @@ typedef CCLuaStackMap::iterator CCLuaStackMapIterator;
 #define kCCLuaDebuggerLDT       1
 #define kCCLuaDebuggerGlobalKey "DEBUG_DISABLE_QUICK_LUA_LOADER"
 
-//#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-//#define ENCRYPT_RESOURCE_ENABLED          1
-//#define ENCRYPT_RESOURCE_IMAGE            1
-//#define ENCRYPT_RESOURCE_PLIST            0
-//#define ENCRYPT_RESOURCE_PVR              0
-//#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#define ENCRYPT_RESOURCE_ENABLED          1
+#define ENCRYPT_RESOURCE_IMAGE            1
+#define ENCRYPT_RESOURCE_PLIST            0
+#define ENCRYPT_RESOURCE_PVR              0
+#endif
 class CC_DLL CCLuaStack : public CCObject
 {
 public:

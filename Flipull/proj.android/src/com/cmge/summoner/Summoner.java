@@ -105,17 +105,17 @@ public class Summoner extends Cocos2dxActivity {
 		super.onCreate(savedInstanceState);
 //		DCAgent.setDebugMode(true);
 //        DCAgent.setReportMode(DCReportMode.DC_AFTER_LOGIN);
-		String fileDir = Cocos2dxHelper.getCocos2dxWritablePath()+"/res_phone";
-		File hFile=new File(fileDir); 
-		if (!hFile.exists() || !hFile.isDirectory())
-		{
-			copyFileOrDir("res_phone");
-			Log.d("cocos2d  dir res_phone have exsited--->path=",fileDir);
-		}
-		else
-		{
-			Log.d("cocos2d  dir res_phone have exsited--->path=",fileDir);
-		}
+//		String fileDir = Cocos2dxHelper.getCocos2dxWritablePath()+"/res_phone";
+//		File hFile=new File(fileDir); 
+//		if (!hFile.exists() || !hFile.isDirectory())
+//		{
+//			copyFileOrDir("res_phone");
+//			Log.d("cocos2d  dir res_phone have exsited--->path=",fileDir);
+//		}
+//		else
+//		{
+//			Log.d("cocos2d  dir res_phone have exsited--->path=",fileDir);
+//		}
 	}
 
     static {

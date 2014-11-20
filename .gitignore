@@ -5,3 +5,17 @@
 *.o
 *.d
 *.log
+*.lnk
+Flipull/Temp_CacheDir/*
+Flipull/res_phone/*
+Flipull/proj.android/assets/*
+Flipull/proj.android/bin/*
+Flipull/proj.android/assets/res/*
+Flipull/proj.win32/Debug/*
+*.class
+*.so
+*.obj
+quick-cocos2d-x/lib/proj.win32/Debug/*
+*.jar
+Flipull/debug.log
+*.log

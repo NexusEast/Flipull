@@ -21,6 +21,13 @@ require("app.Utitls.MiscTools")
 		line =  MiscTools.parseResourceName("b.png"),
 	}
 
+
+	Resource.Tip = {
+		tipLine = MiscTools.parseResourceName("line.png","UI/Tip/"),
+		tipBg = MiscTools.parseResourceName("tip_bg.png","UI/Tip/"),
+		reddot = MiscTools.parseResourceName("reddot.png","UI/Tip/"),
+	}
+
 	Resource.LocalData = {
     	LocalSettingFile =  MiscTools.parseResourceName( "LocalSettingFile.dat","LocalData/"),
     	-- LocalEmailFile =  MiscTools.parseResourceName( "LocalEmailFile.dat","LocalData/"),

@@ -4,13 +4,9 @@
 #include "SimpleAudioEngine.h"
 #include "support/CCNotificationCenter.h"
 #include "CCLuaEngine.h"
-#include <string>
-#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
-#include "dataeye/IOS/DataEye.h"
-#elif CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
-#include "dataeye/android/include/DataEye.h"
-#endif
-
+#include <string> 
+#include <sys/stat.h> 
+#include<fstream>
 using namespace std;
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -26,6 +22,43 @@ AppDelegate::~AppDelegate()
     // end simple audio engine here, or it may crashed on win32
     SimpleAudioEngine::sharedEngine()->end();
 }
+void Tranfile(string srcFile, string tgtFile )
+{
+	fstream fsCopee( srcFile, ios::binary | ios::in ) ;
+	fstream fsCoper( tgtFile, ios::binary | ios::out ) ;
+	fsCoper << fsCopee.rdbuf() ;
+}
+
+int MyCopyFile(string  SourceFile,string NewFile)
+{
+	if ( CCFileUtils::sharedFileUtils()->isFileExist(SourceFile ))
+	{
+		
+		unsigned long len = 0;
+		unsigned char * buff = CCFileUtils::sharedFileUtils()->getFileData(SourceFile.c_str(),"r",&len);
+		FILE* in = fopen(NewFile.c_str(),"wb");
+		fwrite(buff, len * sizeof(char), 1, in);
+        fclose(in);
+	}
+	else
+	{
+		CCLog("File [%s] not exists!",SourceFile.c_str());
+	}
+}
+
+bool CheckDir(const char* Dir)  
+{  
+ 
+        if(mkdir(Dir,0755)==0)  
+        {  
+            return true;//文件夹创建成功  
+        }  
+        else  
+        {  
+			return false;//can not make a dir;  
+        }  
+ 
+} 
 
 bool AppDelegate::applicationDidFinishLaunching()
 {
@@ -45,6 +78,39 @@ bool AppDelegate::applicationDidFinishLaunching()
     CCDirector *pDirector = CCDirector::sharedDirector();
     pDirector->setOpenGLView(CCEGLView::sharedOpenGLView());
     pDirector->setProjection(kCCDirectorProjection2D);
+
+	/////.........COPY 3 FILES FIRST. //////////////////
+	string Srcfile = CCFileUtils::sharedFileUtils()->getSearchPaths()[0] + "res_phone/";//game.dat"; //game.dat
+	string cachePath = CCFileUtils::sharedFileUtils()->getWritablePath() + "res_iphone/";
+	string lockPath = cachePath + ".lock";
+			fstream _file;
+     _file.open(lockPath.c_str(),ios::in);
+	 CCLog("Srcfile:%s",Srcfile.c_str());
+	 CCLog("cachePath:%s",cachePath.c_str());
+	 CCLog("lockPath:%s",lockPath.c_str());
+	if (!_file)
+	{
+
+	if ( CheckDir(cachePath.c_str()) )
+	{
+		
+		CCLog("create :%s success!",cachePath.c_str());
+		MyCopyFile(Srcfile + "game.dat",cachePath + "game.dat");
+		MyCopyFile(Srcfile + "framework_precompiled.zip",cachePath + "framework_precompiled.zip");
+		ofstream fout;
+		fout.open(cachePath+".lock",ios::app);
+		fout<<" "<<endl;
+	}
+	else
+	{
+		CCLog("create :%s failed!",cachePath.c_str());
+	}
+	}
+	else
+	{
+		CCLog(".lock exists!");
+	}
+		
     
     
     // set FPS. the default value is 1.0/60 if you don't call this
@@ -57,8 +123,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     CCLuaStack *pStack = pEngine->getLuaStack();
     
     #if CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID 
-        lua_State *tolua_s = pStack->getLuaState();
-        luaopen_DataEye(tolua_s);
+        lua_State *tolua_s = pStack->getLuaState(); 
     #endif
     
 #if defined(ENCRYPT_RESOURCE_ENABLED) && ENCRYPT_RESOURCE_ENABLED == 1
@@ -69,6 +134,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     // load framework
+    pathBase = "res_phone/";
     std::string pre_zip = "framework_precompiled.zip";
     pre_zip = pathBase+pre_zip;
     
@@ -102,16 +168,15 @@ bool AppDelegate::applicationDidFinishLaunching()
     env.append("\"");
     
     pStack->setXXTEAKeyAndSign("CFgrrwCFewrf", 12);
-	
     
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     
 #if 0
     std::string rootDir = CCFileUtils::sharedFileUtils()->getWritablePath();
 #else
-    std::string rootDir = "";
+    std::string rootDir =  CCFileUtils::sharedFileUtils()->getWritablePath();
 #endif
-    std::string dataPath = rootDir+pathBase + "game.dat";
+    std::string dataPath =   cachePath + "game.dat";
     CCLog("LOAD MAIN.LUA dataPath=%s",dataPath.c_str());
     CCLog("LOAD MAIN.LUA begin--");
     bool runCompliedScript = true;                         ////////////////////////------------------USE COMPILED RESOURCE??
@@ -126,12 +191,23 @@ bool AppDelegate::applicationDidFinishLaunching()
     }
     else
     {
-        if(pStack->executeScriptFile("scripts/main.lua"))
+
+    CCLog("LOAD MAIN.LUA end5--");
+    
+    pEngine->executeString("print(\"blah\")");
+    pEngine->executeString("CCLuaLog(\"blah\")");
+    std::string dataPath = rootDir+pathBase + "scripts/main.lua";
+    CCLog("dataPath:%s",dataPath.c_str());
+        if(pStack->executeScriptFile(dataPath.c_str()))
         {
+
+    CCLog("LOAD MAIN.LUA end6--");
             pEngine->executeString("require \"main\"");
         }
     }
+    CCLog("LOAD MAIN.LUA end7--");
     pEngine->executeString(env.c_str());
+    CCLog("LOAD MAIN.LUA end4--");
     CCLog("LOAD MAIN.LUA end4--");
 #else
     

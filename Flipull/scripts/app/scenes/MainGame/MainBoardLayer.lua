@@ -11,15 +11,30 @@ local MainBoardLayer = class("MainBoardLayer",
 		end)
 
 function MainBoardLayer:generate_test_map()
-	local ret =  
+
+	local callback = function(arg0)
+		self.board_map = assert(loadstring("return " .. arg0))()
+		self:start() 
+	end
+	local paraLable = 
 	{
-		{2,2,2,2,3},
-		{3,2,4,4,5},
-		{3,2,3,2,3},
-		{3,5,4,5,2},
-		{2,2,3,4,5},
-	} 
-	return ret
+		isMsgPackFmt = false,
+		method = kCCHTTPRequestMethodGET,
+		isRespondIsString = true,
+		callbackFunc = callback,
+		url = "http://omicgames.com/admin/fetch_stage.txt",
+		data = " "
+	}
+	MiscTools.HTTPRequest(paraLable)
+	-- local ret =  
+	-- {
+	-- 	{2,2,2,2,3},
+	-- 	{3,2,4,4,5},
+	-- 	{3,2,3,2,3},
+	-- 	{3,5,4,5,2},
+	-- 	{2,2,3,4,5},
+	-- } 
+	-- return ret
 end
 
 function MainBoardLayer:dump_board(board)
@@ -66,6 +81,8 @@ function MainBoardLayer:move_down_blocks()
 	end
 
 end
+
+
 
 function MainBoardLayer:dump_block_table()
 	local str = "\n"
@@ -429,18 +446,19 @@ function MainBoardLayer:setup_current_block()
 	-- body
 end
 
+function MainBoardLayer:start() 
+	self:setup_board()
+	self:setup_controller()
+	self:setup_current_block()
+	self:dump_block_table() 
+end
+
 function MainBoardLayer:ctor(param) 
 	self.size = param.size
 	self.cur_block_type = param.starting_block or 1
 	self.block_table = {}
-	self.board_map = param.board_map or self:generate_test_map()
-	self:setup_board()
-	self:setup_controller()
-	self:setup_current_block()
-	self:dump_block_table()
-	scheduler.performWithDelayGlobal(function() 
-		self:update_animation_horizon()    
-	end, 1)
+	--[[self.board_map = param.board_map or]]
+	 self:generate_test_map()
 
 
 end

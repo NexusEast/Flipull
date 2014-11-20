@@ -3,8 +3,6 @@
 -- Date: 2014-06-10 19:33:41
 --
 
-local Resource = require("app.Misc.Resource")
-
 ToastLayer = class("ToastLayer", function()
 	return display.newNode() end
 	)
@@ -95,7 +93,7 @@ function ToastLayer:ctor(message,params)
 	local offset = params.offset or ccp(0, 0)
 	local bgFile = params.bgFile or Resource.Tip.tipBg
 	local size = params.size or 22
-	local color = params.color or BaseFontColor.cc3_COLOR_TIP_TITLE_SMALL
+	local color = params.color or display.COLOR_RED
 	local anchorpoint = params.anchorpoint 
 	if isDark then
 		self:setMaskColor()

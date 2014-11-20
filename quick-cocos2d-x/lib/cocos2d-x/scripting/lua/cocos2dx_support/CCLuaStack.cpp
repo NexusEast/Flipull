@@ -430,6 +430,7 @@ int CCLuaStack::loadChunksFromZIP(const char *zipFilePath)
     lua_loadChunksFromZIP(m_state);
     int ret = lua_toboolean(m_state, -1);
     lua_pop(m_state, 1);
+    CCLog("CCLuaStack::loadChunksFromZIP result:%d",ret);
     return ret;
 }
 
@@ -704,7 +705,7 @@ int CCLuaStack::lua_loadChunksFromZIP(lua_State *L)
 {
     if (lua_gettop(L) < 1)
     {
-        CCLOG("lua_loadChunksFromZIP() - invalid arguments");
+        CCLog("lua_loadChunksFromZIP() - invalid arguments");
         return 0;
     }
 
@@ -749,7 +750,7 @@ int CCLuaStack::lua_loadChunksFromZIP(lua_State *L)
 
         if (zip)
         {
-            CCLOG("lua_loadChunksFromZIP() - load zip file: %s%s", zipFilePath.c_str(), isXXTEA ? "*" : "");
+            CCLog("lua_loadChunksFromZIP() - load zip file: %s[%s]", zipFilePath.c_str(), isXXTEA ? "isXXTEA" : "NotXXTEA");
             lua_getglobal(L, "package");
             lua_getfield(L, -1, "preload");
 
@@ -770,13 +771,13 @@ int CCLuaStack::lua_loadChunksFromZIP(lua_State *L)
                 }
                 filename = zip->getNextFilename();
             }
-            CCLOG("lua_loadChunksFromZIP() - loaded chunks count: %d", count);
+            CCLog("lua_loadChunksFromZIP() - loaded chunks count: %d", count);
             lua_pop(L, 2);
             lua_pushboolean(L, 1);
         }
         else
         {
-            CCLOG("lua_loadChunksFromZIP() - not found or invalid zip file: %s", zipFilePath.c_str());
+            CCLog("lua_loadChunksFromZIP() - not found or invalid zip file: %s", zipFilePath.c_str());
             lua_pushboolean(L, 0);
         }
 

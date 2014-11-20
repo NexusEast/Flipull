@@ -17,8 +17,9 @@ end
 
   
 function MyApp:localPublicModel() 
+    require("app.BaseUI.LoadingLayer") 
     require("app.BaseUI.ToastLayer") 
-    require("app.Misc.Resource")
+    require("app.Misc.Resource") 
     LocalSetting:init()
 end
 function MyApp:run() 

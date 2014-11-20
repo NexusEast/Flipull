@@ -106,7 +106,7 @@ end
    local m =require("msgpack")
    local _method = paraLable.method or kCCHTTPRequestMethodPOST
    local client = CCHTTPRequest:createWithUrl(function(arg1)
-      --dump(arg1)
+      dump(arg1)
 
       if paraLable.onRequestOver then
           paraLable.onRequestOver()
@@ -114,6 +114,7 @@ end
 
       local bConnectSuccess = false
       if arg1.name == "completed" then
+        -- echoInfo("ResponseStatusCode:%s",arg1.request:getResponseStatusCode() )
           if arg1.request:getResponseStatusCode() == 200 then
               bConnectSuccess = true
           end
@@ -131,7 +132,7 @@ end
                     mainScene:addChild(messageBox,100000)
                 end
           else
-            ToastLayer.showToast("连接服务器失败")
+            ToastLayer.showToast("=====连接服务器失败====")
           end
       else
           local unpacked = nil
@@ -190,9 +191,13 @@ end
       local packed = m.pack(paraLable.data) 
             local pack = ByteArray.new() 
             :writeString(packed)
-      client:setPOSTDataLua(pack:toCCArray())
+        if _method == kCCHTTPRequestMethodPOST then
+            client:setPOSTDataLua(pack:toCCArray())
+        end
    else
-      client:setPOSTData(paraLable.data)
+        if _method == kCCHTTPRequestMethodPOST then
+          client:setPOSTData(paraLable.data)
+       end
    end 
    client:start()  
  end
@@ -530,9 +535,12 @@ end
 
         local retString = device.writablePath..require("app.Utitls.DirBase").._path..filename
 
-        --echoInfo("filePath=%s",retString)
-
-        return retString
+        if io.exists(retString) then 
+          return retString
+        else
+          return require("app.Utitls.DirBase").._path..filename
+        end
+          --todo
 
 	end
 
